@@ -1,2 +1,8 @@
 *
 !.gitignore
+!albums.json
+!comments.json
+!photos.json
+!posts.json
+!todos.json
+!users.json
