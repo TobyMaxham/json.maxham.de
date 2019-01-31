@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
-    <title>{{ env('APP_NAME') }} - Maxham.de !</title>
+    <title>{{ env('APP_NAME') }} - Maxham.de</title>
     <meta name="description" content="Fake online REST API for developers">
     <meta name="author" content="TobyMaxham">
     <meta name="viewport" content="width=device-width, initial-scale=1">
