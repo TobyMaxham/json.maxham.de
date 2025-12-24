@@ -1,60 +1,75 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# 📦 JSON Fake API – Simple REST API for Testing
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This is a free, online REST API providing fake JSON data. It’s ideal for **testing, prototyping, demos, tutorials, and example code** where you need a backend that returns predictable JSON responses.
 
-## About Laravel
+## 🚀 Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+* ✅ Fake online REST API with realistic sample endpoints
+* ✅ Useful for frontend development, tests & learning
+* ✅ Works with **HTTP & HTTPS**
+* ✅ Supports full set of HTTP verbs (GET, POST, PUT, PATCH, DELETE)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🧠 What This API Is
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+This service returns fake JSON data to simulate a real backend. All data is static and ideal for use in development or examples where a backend isn’t available. It follows typical REST conventions, returning structured JSON objects and arrays. JSON (JavaScript Object Notation) is a lightweight, text-based format that’s both human- and machine-readable — and widely used in APIs and data interchange. ([Wikipedia][1])
 
-## Learning Laravel
+## 📌 Example Usage
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+In a browser or Node.js console:
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+```js
+fetch('https://json.maxham.de/posts/1')
+  .then(res => res.json())
+  .then(data => console.log(data))
+```
 
-## Laravel Sponsors
+This will log the JSON object for post with ID `1`.
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+## 📚 Available Resources
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
+You can use these routes to fetch lists and individual records:
 
-## Contributing
+```
+/posts        → 100 post objects  
+/comments     → 500 comment objects  
+/albums       → 100 album objects  
+/photos       → 5000 photo objects  
+/todos        → 200 todo objects  
+/users        → 10 user objects  
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🔄 Supported REST Routes
 
-## Security Vulnerabilities
+| Method | Path                 | Description            |
+|--------|----------------------|------------------------|
+| GET    | `/posts`             | List all posts         |
+| GET    | `/posts/1`           | Get post with ID 1     |
+| GET    | `/posts/1/comments`  | Comments for post 1    |
+| GET    | `/comments?postId=1` | Query comments by post |
+| GET    | `/posts?userId=1`    | Query posts by user    |
+| POST   | `/posts`             | Create a new post      |
+| PUT    | `/posts/1`           | Replace post with ID 1 |
+| PATCH  | `/posts/1`           | Update post with ID 1  |
+| DELETE | `/posts/1`           | Delete post with ID 1  |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+*All HTTP verbs are supported.* ([Link to API][2])
 
-## License
+## 🛠️ Use Cases
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+✅ Prototyping frontend apps
+✅ Testing API calls
+✅ Sharing example code
+✅ Teaching REST or fetch requests
+✅ Mocking backend behavior without a server
+
+## 💡 Notes
+
+* This API returns fake/static data — it does **not** persist changes between requests.
+* Designed for simplicity and convenience.
+
+## ❤️ Made By
+
+Built by **Toby Maxham** — thanks for using this fake JSON API for your projects! ([Link to API][2])
+
+[1]: https://de.wikipedia.org/wiki/JSON?utm_source=chatgpt.com "JSON"
+[2]: https://json.maxham.de/ " - Maxham.de"
