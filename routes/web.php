@@ -1,31 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('home');
-});//->middleware('cors');
-
+});
 
 Route::group(['middleware' => 'api'], function () {
-    Route::resource('/posts', \App\Http\Controllers\PostController::class);
-    Route::resource('/comments', \App\Http\Controllers\CommentController::class);
-    Route::resource('/albums', \App\Http\Controllers\AlbumController::class);
-    Route::resource('/photos', \App\Http\Controllers\PhotoController::class);
-    Route::resource('/todos', \App\Http\Controllers\TodoController::class);
-    Route::resource('/users', \App\Http\Controllers\UserController::class);
+    Route::resource('/posts', PostController::class);
+    Route::resource('/comments', CommentController::class);
+    Route::resource('/albums', AlbumController::class);
+    Route::resource('/photos', PhotoController::class);
+    Route::resource('/todos', TodoController::class);
+    Route::resource('/users', UserController::class);
 
     // todo relations
-    Route::get('/posts/{id}/comments', [\App\Http\Controllers\CommentController::class, 'getPostComments']);
+    Route::get('/posts/{id}/comments', [CommentController::class, 'getPostComments']);
 });
