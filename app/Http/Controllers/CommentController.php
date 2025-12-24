@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 /**
- * Class CommentController
- * @package App\Http\Controllers
  * @author Tobias Maxham <git2018@maxham.de>
  */
-class CommentController extends Controller
+class CommentController extends JsonController
 {
-
     public function getPostComments($postID)
     {
         $rItem = collect();
@@ -18,6 +15,7 @@ class CommentController extends Controller
                 $rItem->push($item);
             }
         }
+
         return response()->jsonpretty($rItem);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +15,17 @@
 
 Route::get('/', function () {
     return view('home');
-})->middleware('cors');
+});//->middleware('cors');
 
 
-Route::group(['middleware' => 'cors'], function () {
-    Route::resource('/posts', 'PostController');
-    Route::resource('/comments', 'CommentController');
-    Route::resource('/albums', 'AlbumController');
-    Route::resource('/albums', 'AlbumController');
-    Route::resource('/photos', 'PhotoController');
-    Route::resource('/todos', 'TodoController');
-    Route::resource('/users', 'UserController');
+Route::group(['middleware' => 'api'], function () {
+    Route::resource('/posts', \App\Http\Controllers\PostController::class);
+    Route::resource('/comments', \App\Http\Controllers\CommentController::class);
+    Route::resource('/albums', \App\Http\Controllers\AlbumController::class);
+    Route::resource('/photos', \App\Http\Controllers\PhotoController::class);
+    Route::resource('/todos', \App\Http\Controllers\TodoController::class);
+    Route::resource('/users', \App\Http\Controllers\UserController::class);
 
     // todo relations
-    Route::get('/posts/{id}/comments', 'CommentController@getPostComments');
+    Route::get('/posts/{id}/comments', [\App\Http\Controllers\CommentController::class, 'getPostComments']);
 });
